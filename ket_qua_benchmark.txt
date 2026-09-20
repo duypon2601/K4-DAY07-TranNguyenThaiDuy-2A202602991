@@ -1,0 +1,83 @@
+================================================================================
+CHẠY ĐÁNH GIÁ TRUY XUẤT (BENCHMARK) — CHIẾN LƯỢC: HEADING
+================================================================================
+Backend Embedding: mock embeddings fallback
+Thư mục tài liệu : data/utsc-library-services
+Số lượng file .md: 8
+Tổng số chunk nạp: 84 chunks
+Độ dài chunk TB  : 229.5 ký tự
+--------------------------------------------------------------------------------
+
+[CÂU HỎI #1] What are the UTSC Library’s regular opening hours from Monday to Friday between September 8 and December 22, 2026?
+  • Gold Answer : The library’s regular weekday hours are 8:00 AM to 10:00 PM. It is closed on October 12, 2026.
+  • Bằng chứng  : utsc-library-hours
+  • Bộ lọc meta : {'category': 'hours'}
+  • Top-3 kết quả truy xuất:
+    1. [0.2042] doc_id=utsc-library-hours (id=utsc-library-hours#0) [KHỚP NGUỒN CHUẨN]
+       Preview: "# UTSC Library Operating Hours  Standard building operating hours and specialized facility schedules..."
+    2. [0.1056] doc_id=utsc-library-hours (id=utsc-library-hours#3) [KHỚP NGUỒN CHUẨN]
+       Preview: "## Makerspace Operating Hours - **Monday:** CLOSED - **Tuesday – Thursday:** 9:00 AM – 3:30 PM (Clos..."
+    3. [0.0193] doc_id=utsc-library-hours (id=utsc-library-hours#1) [KHỚP NGUỒN CHUẨN]
+       Preview: "## Main Library Building Hours (September 8 – December 22, 2026) - **Monday – Friday:** 8:00 AM – 10..."
+  • Đánh giá Top-3: ĐẠT (chứa tài liệu chuẩn)
+
+[CÂU HỎI #2] As an undergraduate student, how long can I borrow regular library items, and what is my item limit?
+  • Gold Answer : Undergraduate students have a regular loan period of 14 days and an item limit of 50.
+  • Bằng chứng  : utsc-borrowing-policy
+  • Bộ lọc meta : {'audience': 'student'}
+  • Top-3 kết quả truy xuất:
+    1. [0.2641] doc_id=utsc-borrowing-policy (id=utsc-borrowing-policy#16) [KHỚP NGUỒN CHUẨN]
+       Preview: "### Fees for Lost and Damaged Items  | Lost/Damaged Item Type | Fee / Cost | |---|---| | Lost book, ..."
+    2. [0.2029] doc_id=utsc-borrowing-policy (id=utsc-borrowing-policy#1) [KHỚP NGUỒN CHUẨN]
+       Preview: "## Loan Privileges by Patron Type  Loan privileges by patron type at most University of Toronto Libr..."
+    3. [0.1859] doc_id=utsc-accessibility-services (id=utsc-accessibility-services#0)
+       Preview: "# Services for Persons with Disabilities  The UTSC Library provides accessible spaces, assistive equ..."
+  • Đánh giá Top-3: ĐẠT (chứa tài liệu chuẩn)
+
+[CÂU HỎI #3] Where should a user return a borrowed laptop from the Technology Loans collection?
+  • Gold Answer : A borrowed laptop should be returned directly to the Info Desk.
+  • Bằng chứng  : utsc-technology-loans
+  • Bộ lọc meta : {'category': 'technology'}
+  • Top-3 kết quả truy xuất:
+    1. [0.2534] doc_id=utsc-technology-loans (id=utsc-technology-loans#1) [KHỚP NGUỒN CHUẨN]
+       Preview: "## Overview and Borrowing Guidelines..."
+    2. [0.2028] doc_id=utsc-technology-loans (id=utsc-technology-loans#4) [KHỚP NGUỒN CHUẨN]
+       Preview: "### Fines and Loan Limits - **Late return fine:** $0.50 per item per hour. - **Renewal policy:** Tec..."
+    3. [0.1348] doc_id=utsc-technology-loans (id=utsc-technology-loans#6) [KHỚP NGUỒN CHUẨN]
+       Preview: "### Computing and Display - **Laptops and Monitors:** Available for checkout at the Info Desk. - **K..."
+  • Đánh giá Top-3: ĐẠT (chứa tài liệu chuẩn)
+
+[CÂU HỎI #4] A student needs to find a physical course reading placed on reserve. Where is it located?
+  • Gold Answer : Physical course reserves are located 20 steps to the left of the InfoDesk at the UTSC Library.
+  • Bằng chứng  : utsc-course-reserves
+  • Bộ lọc meta : {'audience': 'student'}
+  • Top-3 kết quả truy xuất:
+    1. [0.2815] doc_id=utsc-technology-loans (id=utsc-technology-loans#8)
+       Preview: "### Audio and Visual Devices  - **Makerspace Production Gear:** Wireless microphones for iOS/Android..."
+    2. [0.1831] doc_id=utsc-borrowing-policy (id=utsc-borrowing-policy#8)
+       Preview: "### Returning Materials Materials can be returned at the Information and Reference Desk. A drop box ..."
+    3. [0.1626] doc_id=utsc-borrowing-policy (id=utsc-borrowing-policy#6)
+       Preview: "### Unlimited Renewals Current U of T students (including Continuing Education), faculty, and staff ..."
+  • Đánh giá Top-3: CHƯA ĐẠT
+  --- [A/B TEST CHO CÂU HỎI #4: CÓ LỌC vs KHÔNG LỌC] ---
+  > Khi KHÔNG lọc metadata:
+    1. [0.2815] doc_id=utsc-technology-loans | audience=student
+    2. [0.2444] doc_id=utsc-research-publishing | audience=faculty
+    3. [0.2274] doc_id=utsc-library-spaces | audience=all
+  > Khi CÓ lọc metadata_filter={'audience': 'student'}:
+    1. [0.2815] doc_id=utsc-technology-loans | audience=student
+    2. [0.1831] doc_id=utsc-borrowing-policy | audience=student
+    3. [0.1626] doc_id=utsc-borrowing-policy | audience=student
+
+[CÂU HỎI #5] Which service provides a free and secure University of Toronto repository for disseminating and preserving faculty and graduate-student research?
+  • Gold Answer : TSpace – University of Toronto Research Repository.
+  • Bằng chứng  : utsc-research-publishing
+  • Bộ lọc meta : {'audience': 'faculty'}
+  • Top-3 kết quả truy xuất:
+    1. [0.1570] doc_id=utsc-research-publishing (id=utsc-research-publishing#7) [KHỚP NGUỒN CHUẨN]
+       Preview: "### Journal Production Services Provides free open access hosting, indexing assistance, and technica..."
+    2. [0.1006] doc_id=utsc-research-publishing (id=utsc-research-publishing#0) [KHỚP NGUỒN CHUẨN]
+       Preview: "# Research and Publishing Services for Faculty  The UTSC Library partners with faculty and researche..."
+    3. [0.0986] doc_id=utsc-research-publishing (id=utsc-research-publishing#3) [KHỚP NGUỒN CHUẨN]
+       Preview: "### In-Depth Research Consultations  - **Entrepreneurship & Innovation Librarians:** Assist with mar..."
+  • Đánh giá Top-3: ĐẠT (chứa tài liệu chuẩn)

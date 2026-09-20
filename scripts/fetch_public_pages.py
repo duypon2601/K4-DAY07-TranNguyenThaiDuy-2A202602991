@@ -82,6 +82,8 @@ def slugify(value: str) -> str:
 
 
 def yaml_value(value: str) -> str:
+    if re.match(r"^[A-Za-z0-9_.-]+$", value):
+        return value
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
@@ -223,7 +225,7 @@ def main() -> int:
             }
             successful += 1
             print(f"Saved {output_path}")
-        except (HTTPError, URLError, TimeoutError, UnicodeError, ValueError, OSError) as error:
+        except (HTTPError, URLError, TimeoutError, UnicodeError, LookupError, ValueError, OSError) as error:
             failed += 1
             print(f"Skipping {url}: {error}", file=sys.stderr)
     write_manifest(manifest_path, manifest)

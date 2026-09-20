@@ -1,0 +1,9 @@
+url,doc_id,title,audience,department,category,language,document_version,license_or_permission
+https://utsc.library.utoronto.ca/borrowing,utsc-borrowing-policy,UTSC Library borrowing policy,student,library,borrowing,en,2025-12-17,public-source
+https://utsc.library.utoronto.ca/course-reserves-short-term-loan,utsc-course-reserves,Course reserves and short-term loans,student,library,reserves,en,not-stated,public-source
+https://utsc.library.utoronto.ca/technology-loans,utsc-technology-loans,Technology loans,student,library,technology,en,not-stated,public-source
+https://utsc.library.utoronto.ca/services-persons-disabilities,utsc-accessibility-services,Services for persons with disabilities,student,library,accessibility,en,not-stated,public-source
+https://utsc.library.utoronto.ca/ask-librarian-chat,utsc-ask-librarian,Ask a Librarian chat service,all,library,reference,en,not-stated,public-source
+https://utsc.library.utoronto.ca/library-spaces,utsc-library-spaces,Library spaces and services,all,library,facilities,en,not-stated,public-source
+https://utsc.library.utoronto.ca/hours,utsc-library-hours,UTSC Library hours,all,library,hours,en,2026-09-08,public-source
+https://utsc.library.utoronto.ca/research-publishing,utsc-research-publishing,Research and publishing services for faculty,faculty,library,research,en,not-stated,public-source
